@@ -78,11 +78,59 @@ const NAV_ITEMS: NavItem[] = [
   { key: 'contact', label: 'Contact' },
 ]
 
+const MOBILE_MENU_ITEMS = [
+  {
+    label: 'Locations',
+    href: '/rehabs',
+  },
+  {
+    label: 'Treatment',
+    items: [
+      { label: 'Adults', isHeader: true },
+      ...TREATMENT_MENU[0].items.map(item => ({ label: item, href: `/rehabs?treatment=${slugify(item)}` })),
+      { label: 'Child & Adolescents', isHeader: true },
+      ...TREATMENT_MENU[1].items.map(item => ({ label: item, href: `/rehabs?treatment=${slugify(item)}` })),
+      { label: 'Geriatric (Elderly)', isHeader: true },
+      ...TREATMENT_MENU[1].extra!.items.map(item => ({ label: item, href: `/rehabs?treatment=${slugify(item)}` })),
+      { label: 'Others', isHeader: true },
+      ...TREATMENT_MENU[2].items.map(item => ({ label: item, href: `/rehabs?treatment=${slugify(item)}` })),
+    ]
+  },
+  {
+    label: 'Guide',
+    items: GUIDE_MENU.map(item => ({ label: item, href: `/blog?category=${slugify(item)}` }))
+  },
+  {
+    label: 'Resources',
+    items: RESOURCES_MENU.map(item => ({ label: item, href: `/resources/${slugify(item)}` }))
+  },
+  {
+    label: 'Blogs',
+    href: '/blog',
+  },
+  {
+    label: 'Contact',
+    items: CONTACT_MENU.map(item => ({ label: item.label, href: item.href }))
+  }
+]
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeMega, setActiveMega] = useState<string | null>(null)
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const navRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -100,15 +148,15 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="top-0 z-50 relative w-full px-6 sm:px-12 lg:px-12 mt-2"
+      className="top-0 z-50 relative w-full px-3 md:px-12 mt-3 md:mt-2"
 
     >
-      <div className="rounded-3xl" style={{ background: 'linear-gradient(to right, #f2e9d8, #f7f2e8, #f2e9d8)' }}>
+      <div className="rounded-[1.5rem] md:rounded-3xl" style={{ background: 'linear-gradient(to right, #f2e9d8, #f7f2e8, #f2e9d8)' }}>
         {/* ── Main bar ── */}
-        <div className="px-6 lg:px-8 py-5 flex items-center justify-between gap-6">
+        <div className="px-5 md:px-8 py-4 md:py-5 flex items-center justify-between gap-6">
 
           {/* Logo */}
-          <div className='flex gap-4'>
+          <div className='flex gap-4 items-center'>
             <Link href="/" className="shrink-0">
               <Image
                 src="/images/homepage/recoverindia-logo.png"
@@ -116,11 +164,11 @@ export default function Header() {
                 width={220}
                 height={60}
                 priority
-                className="h-14 w-auto object-contain"
+                className="h-10 md:h-14 w-auto object-contain"
               />
             </Link>
 
-            <p className='text-[#8e8070] font-bold border-l-2 border-dotted border-[#8e8070] pl-4'>India’s Most<br />
+            <p className='hidden md:block text-[#8e8070] font-bold border-l-2 border-dotted border-[#8e8070] pl-4'>India’s Most<br />
               Exclusive Luxury<br />
               Rehab Network</p>
           </div>
@@ -331,7 +379,7 @@ export default function Header() {
           {/* Phone */}
           <a
             href="tel:18005699881"
-            className="hidden sm:inline-flex items-center gap-2 font-extrabold text-xl hover:opacity-80 transition shrink-0"
+            className="hidden md:inline-flex items-center gap-2 font-extrabold text-xl hover:opacity-80 transition shrink-0"
             style={{ color: '#318bb0' }}
           >
             <div
@@ -343,71 +391,166 @@ export default function Header() {
             1800 569 9881
           </a>
 
-          {/* Mobile trigger */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-slate-700 hover:bg-white/60 transition"
-          >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile Actions */}
+          <div className="flex md:hidden items-center gap-3">
+            {/* Phone Button */}
+            <a
+              href="tel:18005699881"
+              className="w-12 h-12 rounded-full flex items-center justify-center bg-[#38bfa7] hover:bg-[#30b098] transition shadow-sm shrink-0"
+            >
+              <PhoneCall className="w-5 h-5 text-white fill-white" />
+            </a>
+
+            {/* Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="w-12 h-12 rounded-full flex items-center justify-center bg-[#38bfa7] hover:bg-[#30b098] text-white transition shadow-sm shrink-0"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="0" y1="2" x2="20" y2="2" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                  <line x1="0" y1="6" x2="20" y2="6" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                  <line x1="0" y1="10" x2="20" y2="10" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                  <line x1="0" y1="14" x2="20" y2="14" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* ── MOBILE MENU ── */}
         {isMobileMenuOpen && (
-          <div
-            className="md:hidden border-t border-white/10 px-6 py-5 space-y-4 max-h-[80vh] overflow-y-auto"
-            style={{ backgroundColor: '#318bb0' }}
-          >
-            <Link href="/rehabs" onClick={() => setIsMobileMenuOpen(false)} className="block text-white font-semibold py-1">
-              Locations
-            </Link>
+          <>
+            {/* Backdrop Overlay */}
+            <div
+              className="fixed inset-0 z-[99] bg-black/40 backdrop-blur-sm transition-opacity duration-300"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            {/* Drawer Panel */}
+            <div className="fixed top-0 right-0 bottom-0 z-[100] bg-white flex flex-col w-[90%] h-full shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right duration-300">
+              {/* Mobile Menu Header */}
+              <div className="px-6 py-4 flex items-center justify-between border-b border-slate-100">
+                <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Image
+                    src="/images/homepage/recoverindia-logo.png"
+                    alt="RecoverIndia"
+                    width={180}
+                    height={50}
+                    priority
+                    className="h-8 w-auto object-contain"
+                  />
+                </Link>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-12 h-12 rounded-xl bg-[#5cbcd6] flex items-center justify-center text-white hover:opacity-90 transition shadow-sm"
+                  aria-label="Close menu"
+                >
+                  <X className="w-6 h-6 stroke-[2.5]" />
+                </button>
+              </div>
 
-            <div>
-              <p className="text-white font-semibold py-1 mb-2">Treatment</p>
-              {[TREATMENT_MENU[0], TREATMENT_MENU[1], { category: 'Geriatric (Elderly)', items: TREATMENT_MENU[1].extra!.items }, TREATMENT_MENU[2]].map((group) => (
-                <div key={group.category} className="ml-3 mb-4">
-                  <p className="text-[10px] font-black text-white/50 uppercase tracking-widest mb-2">{group.category}</p>
-                  {group.items.map((item) => (
-                    <Link
-                      key={item}
-                      href={`/rehabs?treatment=${slugify(item)}`}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-sm text-white/80 hover:text-white py-1"
-                    >
-                      {item}
-                    </Link>
-                  ))}
+              {/* Mobile Scroll Area */}
+              <div className="flex-1 overflow-y-auto flex flex-col justify-between">
+                {/* Menu items */}
+                <div className="divide-y divide-slate-100">
+                  {MOBILE_MENU_ITEMS.map((item) => {
+                    const hasSubmenu = !!item.items;
+                    const isSubOpen = openSubmenu === item.label;
+
+                    if (!hasSubmenu) {
+                      return (
+                        <Link
+                          key={item.label}
+                          href={item.href || '#'}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="w-full px-6 py-4 flex items-center justify-between text-[#0a526b] font-bold text-sm tracking-wider hover:bg-slate-50 transition"
+                        >
+                          {item.label}
+                        </Link>
+                      );
+                    }
+
+                    return (
+                      <div key={item.label} className="w-full flex flex-col">
+                        <button
+                          onClick={() => setOpenSubmenu(isSubOpen ? null : item.label)}
+                          className="w-full px-6 py-4 flex items-center justify-between text-[#0a526b] font-bold text-sm tracking-wider hover:bg-slate-50 transition"
+                        >
+                          <span>{item.label}</span>
+                          <ChevronDown
+                            className={`w-4 h-4 text-[#0a526b] transition-transform duration-200 ${isSubOpen ? 'rotate-180' : ''
+                              }`}
+                          />
+                        </button>
+
+                        <div
+                          className={`grid transition-all duration-300 ease-in-out bg-slate-50/50 ${isSubOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                            }`}
+                        >
+                          <div className="overflow-hidden flex flex-col pl-4 pr-6 bg-slate-50/30">
+                            {item.items?.map((sub, sIdx) => {
+                              if ('isHeader' in sub && sub.isHeader) {
+                                return (
+                                  <div
+                                    key={sIdx}
+                                    className="px-6 pt-5 pb-2 text-[10px] font-black text-[#0a526b]/60 uppercase tracking-widest border-b border-slate-100/40"
+                                  >
+                                    {sub.label}
+                                  </div>
+                                );
+                              }
+                              return (
+                                <Link
+                                  key={sIdx}
+                                  href={sub.href || '#'}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="px-6 py-3.5 text-xs sm:text-sm text-[#4b5563] font-medium hover:text-[#0a526b] transition border-b border-slate-100/40 last:border-b-0"
+                                >
+                                  {sub.label}
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              ))}
+
+                {/* Bottom Testimonial Block */}
+                <div className="p-6 border-t border-slate-100 bg-[#fafafa] mt-6">
+                  <div className="relative border border-slate-100 rounded-2xl p-4 bg-white flex gap-4 items-center shadow-sm">
+                    {/* Quote icon */}
+                    <span className="absolute top-2 right-4 text-4xl font-serif text-slate-200 leading-none select-none">”</span>
+
+                    {/* Doctor image container */}
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border border-slate-100">
+                      <img
+                        src="/images/homepage/sneha-oval.png"
+                        alt="Dr. Sneha Sharma"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Testimonial Quote details */}
+                    <div className="flex-1 min-w-0 pr-4">
+                      <p className="text-sm sm:text-xs text-[#0a526b] italic mb-1 font-serif leading-tight">
+                        &ldquo;Just like the Gym is for your body, Therapy is for your Mind&rdquo;
+                      </p>
+                      <p className="text-sm sm:text-[11px] text-slate-800 font-bold leading-tight">
+                        Dr. Sneha Sharma
+                      </p>
+                      <p className="text-sm sm:text-[10px] text-slate-400 font-medium">
+                        Psychiatrist, Anvaya Healthcare
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div>
-              <p className="text-white font-semibold py-1 mb-2">Guide</p>
-              {GUIDE_MENU.map((item) => (
-                <Link key={item} href={`/blog?category=${slugify(item)}`} onClick={() => setIsMobileMenuOpen(false)} className="block text-sm text-white/80 hover:text-white py-1 ml-3">{item}</Link>
-              ))}
-            </div>
-
-            <div>
-              <p className="text-white font-semibold py-1 mb-2">Resources</p>
-              {RESOURCES_MENU.map((item) => (
-                <Link key={item} href={`/resources/${slugify(item)}`} onClick={() => setIsMobileMenuOpen(false)} className="block text-sm text-white/80 hover:text-white py-1 ml-3">{item}</Link>
-              ))}
-            </div>
-
-            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="block text-white font-semibold py-1">Blogs</Link>
-
-            <div>
-              <p className="text-white font-semibold py-1 mb-2">Contact</p>
-              {CONTACT_MENU.map((item) => (
-                <a key={item.label} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="block text-sm text-white/80 hover:text-white py-1 ml-3">{item.label}</a>
-              ))}
-            </div>
-
-            <a href="tel:18005699881" className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-white/20 text-white font-bold text-sm">
-              <PhoneCall className="w-4 h-4" /> 1800 569 9881
-            </a>
-          </div>
+          </>
         )}
       </div>
     </header>

@@ -18,33 +18,33 @@ export default function RehabsByTreatment() {
             <div className="">
 
                 {/* Header */}
-                <div className="flex items-start justify-between mb-10">
+                <div className="flex items-start justify-between mb-8 gap-4">
                     <div>
-                        <h2 className="text-4xl font-serif text-[#318bb0] leading-tight mb-1">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#318bb0] leading-tight mb-1">
                             Rehabs By Treatment
                         </h2>
-                        <p className="text-slate-500 text-sm">
+                        <p className="text-slate-500 text-xs sm:text-sm">
                             Browse trusted rehab centres by level of care and treatment specialization
                         </p>
                     </div>
                     <Link
                         href="/search"
-                        className="shrink-0 border border-gray-300 text-[#666666] text-base font-semibold px-5 py-2 rounded-xl hover:border-[#318bb0] hover:text-[#318bb0] transition"
+                        className="shrink-0 border border-gray-300 text-[#666666] text-xs sm:text-base font-semibold px-3 py-1.5 sm:px-5 sm:py-2 rounded-xl hover:border-[#318bb0] hover:text-[#318bb0] transition"
                     >
                         All Treatments
                     </Link>
                 </div>
 
                 {/* Circles */}
-                <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-4">
+                <div className="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-8 gap-x-2 gap-y-6 sm:gap-4">
                     {TREATMENTS.map((t) => (
                         <Link
                             key={t.slug}
                             href={`/treatment/${t.slug}`}
-                            className="flex flex-col items-center gap-3 group"
+                            className="flex flex-col items-center gap-2 sm:gap-3 group"
                         >
                             <div
-                                className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden flex items-center justify-center shrink-0"
+                                className="relative w-20 h-20 min-[375px]:w-24 min-[375px]:h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden flex items-center justify-center shrink-0"
                             >
                                 <Image
                                     src={t.icon}
@@ -56,7 +56,7 @@ export default function RehabsByTreatment() {
 
                             </div>
 
-                            <p className="text-center text-xs sm:text-base font-bold text-[#318bb0] leading-tight group-hover:text-[#27708e] transition whitespace-pre-line">
+                            <p className="text-center text-[10px] min-[375px]:text-xs sm:text-base font-bold text-[#318bb0] leading-tight group-hover:text-[#27708e] transition whitespace-pre-line">
                                 {t.label}
                             </p>
                         </Link>

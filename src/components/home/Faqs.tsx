@@ -41,42 +41,42 @@ export default function Faqs() {
   ]
 
   return (
-    <section id="faqs" className="pt-20 bg-white text-slate-800">
-      <div className="px-6 sm:px-12 lg:px-12">
-        <div className="text-left mb-12">
-          <h2 className="text-3xl font-normal text-[#318bb0] tracking-tight mb-2">FAQs - Common Concerns</h2>
-          <p className="text-slate-500 text-sm">
+    <section id="faqs" className="pt-12 pb-16 bg-white text-slate-800">
+      <div className="px-3 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <h2 className="text-2xl sm:text-3xl font-normal text-[#318bb0] tracking-tight mb-2 font-serif">FAQs - Common Concerns</h2>
+          <p className="text-slate-500 text-xs sm:text-sm">
             Find answers to common questions about rehabilitation, recovery, and wellness support
           </p>
         </div>
 
         {/* Rounded Single Accordion Container */}
-        <div className="bg-[#fafafa] border border-slate-200/80 rounded-[24px] shadow-sm overflow-hidden divide-y divide-slate-200/70">
+        <div className="bg-[#fafafa] border border-slate-200/80 rounded-[20px] sm:rounded-[24px] shadow-sm overflow-hidden divide-y divide-slate-200/70">
           {faqs.map((faq, idx) => (
             <div key={idx} className="transition duration-300">
               <button
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                className="w-full p-6 text-left font-sans font-bold text-[#318bb0] text-lg sm:text-base flex items-center justify-between gap-6 hover:bg-slate-100/50 transition cursor-pointer"
+                className="w-full p-4 sm:p-6 text-left font-sans font-bold text-[#318bb0] text-sm sm:text-base md:text-lg flex items-center justify-between gap-4 sm:gap-6 hover:bg-slate-100/50 transition cursor-pointer"
               >
-                <div className="flex items-center gap-12">
-                  <span className="text-[#318bb0] font-sans font-extrabold text-xl tracking-wide">
+                <div className="flex items-center gap-4 sm:gap-8 md:gap-12">
+                  <span className="text-[#318bb0] font-sans font-extrabold text-base sm:text-lg md:text-xl tracking-wide shrink-0">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
-                  <span>{faq.q}</span>
+                  <span className="leading-snug">{faq.q}</span>
                 </div>
 
                 {/* Solid Teal Plus/Minus Icon */}
-                <div className="w-7 h-7 rounded-full bg-[#69cfbb] text-white flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#69cfbb] text-white flex items-center justify-center shrink-0 shadow-sm">
                   {openFaq === idx ? (
-                    <span className="text-lg font-bold leading-none select-none">-</span>
+                    <span className="text-base sm:text-lg font-bold leading-none select-none">-</span>
                   ) : (
-                    <span className="text-lg font-bold leading-none select-none">+</span>
+                    <span className="text-base sm:text-lg font-bold leading-none select-none">+</span>
                   )}
                 </div>
               </button>
 
               {openFaq === idx && (
-                <div className="px-6 pb-6 pl-[92px] pr-14 text-base text-[#666] leading-relaxed -mt-2">
+                <div className="px-4 pb-4 pl-[48px] sm:pl-[76px] md:pl-[92px] pr-6 sm:pr-14 text-xs sm:text-sm md:text-base text-[#666] leading-relaxed -mt-2">
                   {faq.a}
                 </div>
               )}

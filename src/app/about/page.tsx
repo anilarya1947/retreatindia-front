@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/components/home/Header'
@@ -13,16 +15,39 @@ import {
 } from 'lucide-react'
 
 export default function AboutPage() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
   const whoWeAreFeatures = [
     {
       title: 'Curated & Verified Listings',
       desc: 'Discover rehabilitation centres through thoughtfully curated listings designed to make your search more focused and informative.',
+      image: '/images/homepage/CuratedVerified-Listings.png',
     },
-    { title: 'Transparent Guidance', desc: '' },
-    { title: 'Personalized Discovery', desc: '' },
-    { title: 'Optimum Stay Planning', desc: '' },
-    { title: 'Privacy Focused', desc: '' },
-    { title: 'Expert-Assisted Discovery', desc: '' },
+    {
+      title: 'Transparent Guidance',
+      desc: 'Access relevant information about treatment approaches, facilities, environments, and recovery programs to support better decision-making.',
+      image: '/images/homepage/Transparent-Guidance.png',
+    },
+    {
+      title: 'Personalized Discovery',
+      desc: 'Explore options based on your unique requirements, preferences, recovery goals, location, and budget.',
+      image: '/images/homepage/Personalized-Discovery.png',
+    },
+    {
+      title: 'Optimum Stay Planning',
+      desc: 'Understand different care environments and treatment durations to help identify options that are appropriate for individual recovery needs.',
+      image: '/images/homepage/Optimum-Stay-Planning.png',
+    },
+    {
+      title: 'Privacy Focused',
+      desc: 'We understand that seeking rehabilitation is a personal decision. Our approach emphasizes discretion, respect, and privacy throughout the discovery journey.',
+      image: '/images/homepage/Privacy-Focused.png',
+    },
+    {
+      title: 'Expert-Assisted Discovery',
+      desc: 'Where required, users can seek guidance to better understand their options and navigate the rehabilitation discovery process with greater confidence.',
+      image: '/images/homepage/Expert-Assisted-Discovery.png',
+    },
   ]
 
   const offerCards = [
@@ -138,10 +163,10 @@ export default function AboutPage() {
             />
           </div>
           <div>
-            <span className="inline-block px-4 py-1.5 mb-5 rounded-full bg-slate-100 text-[#7c7c7c] text-lg font-semibold">
+            <span className="inline-block px-6 py-1.5 mb-5 rounded-full bg-slate-100 text-[#7c7c7c] text-[20px] font-normal">
               Who we are
             </span>
-            <p className="text-3xl sm:text-4xl font-medium text-[#318bb0] leading-tight mb-6">
+            <p className="text-[44px] font-medium text-[#318bb0] leading-tight mb-6">
               A trusted starting point for your recovery journey
             </p>
             <div className="space-y-4 text-[#666666] text-sm sm:text-base leading-relaxed">
@@ -161,10 +186,10 @@ export default function AboutPage() {
       <section className="py-20 pb-0 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 mb-5 rounded-full bg-slate-100 text-slate-600 text-lg font-semibold">
+            <span className="inline-block px-6 py-1.5 mb-5 rounded-full bg-slate-100 text-[#7c7c7c] text-[20px] font-normal">
               What we offer
             </span>
-            <p className="text-3xl sm:text-4xl font-medium text-[#318bb0] leading-tight">
+            <p className="text-[44px] font-medium text-[#318bb0] leading-tight">
               Helping you discover{' '}
               <span className="inline-block px-4 py-1 bg-[#318bb0] text-white rounded-full">recovery</span>
               <br className="hidden sm:block" /> options that fit your needs
@@ -172,21 +197,30 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Card 1 spans full height with extra copy + CTA */}
-            <div className="border border-slate-200 rounded-[24px] p-8 flex flex-col">
-              <div className="flex items-start justify-between mb-6">
-                <span className="text-base text-slate-400 font-semibold">{offerCards[0].num}</span>
-                <div className="text-[#318bb0]"><img src={offerCards[0].icon} alt="" width={28} height={28} /></div>
+            {/* Left Column: Card 1 (top) + extra copy & CTA (bottom) */}
+            <div className="flex flex-col gap-6 h-full justify-between">
+              {/* Card 1 itself */}
+              <div className="bg-white border border-slate-200 rounded-[24px] p-8 flex flex-col transition-all duration-300 hover:bg-[#318bb0] hover:border-transparent group cursor-pointer">
+                <div className="flex items-start justify-between mb-6">
+                  <span className="text-base text-slate-400 font-semibold transition-colors duration-300 group-hover:text-white/80">{offerCards[0].num}</span>
+                  <div className="text-[#318bb0] transition-colors duration-300 group-hover:text-white">
+                    <img src={offerCards[0].icon} alt="" width={28} height={28} className="transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
+                  </div>
+                </div>
+                <p className="text-[#318bb0] font-bold text-[20px] mb-2 transition-colors duration-300 group-hover:text-white">{offerCards[0].title}</p>
+                <p className="text-slate-500 text-[16px] leading-relaxed transition-colors duration-300 group-hover:text-white/90">{offerCards[0].desc}</p>
               </div>
-              <p className="text-[#318bb0] font-bold text-lg mb-2">{offerCards[0].title}</p>
-              <p className="text-slate-500 text-sm leading-relaxed mb-6">{offerCards[0].desc}</p>
-              <p className="text-slate-500 text-xs leading-relaxed mb-6 mt-auto">
-                RecoverIndia.Org goes beyond simply listing rehabilitation centres. We aim to make the discovery process more meaningful by helping users understand different treatment environments and recovery options.
-              </p>
-              <div>
-                <button className="inline-flex items-center justify-center px-6 py-3 bg-[#3bb89b] hover:bg-[#2fa388] text-white font-bold text-xs tracking-wider uppercase rounded-full shadow-md transition">
-                  Get Started
-                </button>
+
+              {/* Extra Copy & CTA below Card 1 */}
+              <div className="flex flex-col gap-6 mt-auto">
+                <p className="text-slate-500 text-[16px] leading-relaxed">
+                  RecoverIndia.Org goes beyond simply listing rehabilitation centres. We aim to make the discovery process more meaningful by helping users understand different treatment environments and recovery options.
+                </p>
+                <div>
+                  <button className="inline-flex items-center justify-center px-6 py-3 bg-[#3bb89b] hover:bg-[#2fa388] text-white font-bold text-xs tracking-wider uppercase rounded-full shadow-md transition">
+                    Get Started
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -195,21 +229,21 @@ export default function AboutPage() {
               {offerCards.slice(1).map((c, idx) => (
                 <div
                   key={idx}
-                  className={`rounded-[24px] p-6 flex flex-col ${c.variant === 'dark'
-                    ? 'bg-[#318bb0] text-white sm:col-span-1'
-                    : 'border border-slate-200 text-slate-800'
-                    } ${idx === 0 ? 'sm:col-span-2' : ''}`}
+                  className={`bg-white border border-slate-200 rounded-[24px] p-6 flex flex-col transition-all duration-300 hover:bg-[#318bb0] hover:border-transparent group ${idx === 0 ? 'sm:col-span-2' : ''
+                    }`}
                 >
                   <div className="flex items-start justify-between mb-6">
-                    <span className={`text-base font-semibold ${c.variant === 'dark' ? 'text-white/70' : 'text-slate-400'}`}>
+                    <span className="text-base text-slate-400 font-semibold transition-colors duration-300 group-hover:text-white/80">
                       {c.num}
                     </span>
-                    <div className={c.variant === 'dark' ? 'text-white' : 'text-[#318bb0]'}><img src={c.icon} alt="" width={28} height={28} /></div>
+                    <div className="text-[#318bb0] transition-colors duration-300 group-hover:text-white">
+                      <img src={c.icon} alt="" width={28} height={28} className="transition-all duration-300 group-hover:brightness-0 group-hover:invert" />
+                    </div>
                   </div>
-                  <p className={`font-bold text-lg mb-2 ${c.variant === 'dark' ? 'text-white' : 'text-[#318bb0]'}`}>
+                  <p className="text-[#318bb0] font-bold text-[20px] mb-2 transition-colors duration-300 group-hover:text-white">
                     {c.title}
                   </p>
-                  <p className={`text-sm leading-relaxed ${c.variant === 'dark' ? 'text-white/85' : 'text-slate-500'}`}>
+                  <p className="text-slate-500 text-[16px] leading-relaxed transition-colors duration-300 group-hover:text-white/90">
                     {c.desc}
                   </p>
                 </div>
@@ -222,10 +256,10 @@ export default function AboutPage() {
       <section className="py-20 pb-0 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block px-4 py-1.5 mb-5 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-semibold">
+            <span className="inline-block px-6 py-1.5 mb-5 rounded-full bg-slate-100 text-[#7c7c7c] text-[20px] font-normal">
               Who we are
             </span>
-            <p className="text-3xl sm:text-4xl font-semibold text-[#318bb0] leading-tight mb-4">
+            <p className="text-[44px] font-semibold text-[#318bb0] leading-tight mb-4">
               A trusted starting point for your recovery journey
             </p>
             <h3 className="text-[#3bb89b] font-bold text-lg mb-2">
@@ -236,20 +270,45 @@ export default function AboutPage() {
             </p>
 
             <div className="divide-y divide-slate-200 border-t border-slate-200">
-              {whoWeAreFeatures.map((f, idx) => (
-                <div key={idx} className="py-4">
-                  <h4 className="text-[#318bb0] font-bold text-sm sm:text-lg mb-1">{f.title}</h4>
-                  {f.desc && (
-                    <p className="text-slate-500 text-xs sm:text-base leading-relaxed max-w-sm">{f.desc}</p>
-                  )}
-                </div>
-              ))}
+              {whoWeAreFeatures.map((f, idx) => {
+                const isActive = activeIndex === idx;
+                return (
+                  <div
+                    key={idx}
+                    className="py-4 cursor-pointer group"
+                    onMouseEnter={() => setActiveIndex(idx)}
+                  >
+                    <h4
+                      className={`font-bold text-sm sm:text-lg mb-1 transition-colors duration-300 ${isActive ? 'text-[#318bb0]' : 'text-slate-400 group-hover:text-[#318bb0]'
+                        }`}
+                    >
+                      {f.title}
+                    </h4>
+                    <div
+                      className={`grid transition-all duration-300 ease-in-out ${isActive
+                        ? 'grid-rows-[1fr] opacity-100 mt-2'
+                        : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                        }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="text-slate-500 text-xs sm:text-base leading-relaxed max-w-md">
+                          {f.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           {/* Illustration */}
-          <div className="relative flex items-center justify-center py-10">
-            <img src="/images/homepage/curated.png" alt="" />
+          <div className="relative flex items-center justify-center py-10 min-h-[400px]">
+            <img
+              src={whoWeAreFeatures[activeIndex].image}
+              alt={whoWeAreFeatures[activeIndex].title}
+              className="max-h-[400px] object-contain transition-opacity duration-300"
+            />
           </div>
         </div>
       </section>
@@ -262,10 +321,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-6">
           {/* Vision */}
           <div className="bg-white border border-slate-200 rounded-4xl p-8 sm:p-10">
-            <span className="inline-block px-4 py-1.5 mb-5 rounded-full bg-slate-100 text-[#7c7c7c] text-lg font-semibold">
+            <span className="inline-block px-6 py-1.5 mb-5 rounded-full bg-slate-100 text-[#7c7c7c] text-[20px] font-normal">
               Our Vision
             </span>
-            <p className="text-2xl sm:text-4xl font-semibold text-[#318bb0] leading-none mb-5">
+            <p className="text-[44px] font-semibold text-[#318bb0] leading-none mb-5">
               A future where finding the right recovery support is easier
             </p>
             <div className="space-y-4 text-slate-600 text-sm leading-relaxed">
@@ -277,10 +336,10 @@ export default function AboutPage() {
 
           {/* Mission */}
           <div className="bg-white border border-slate-200 rounded-4xl p-8 sm:p-10">
-            <span className="inline-block px-4 py-1.5 mb-5 rounded-full bg-slate-100 text-[#7c7c7c] text-lg font-semibold">
+            <span className="inline-block px-6 py-1.5 mb-5 rounded-full bg-slate-100 text-[#7c7c7c] text-[20px] font-normal">
               Our Mission
             </span>
-            <p className="text-2xl sm:text-4xl font-semibold text-[#318bb0] leading-none mb-5">
+            <p className="text-[44px] font-semibold text-[#318bb0] leading-none mb-5">
               To simplify the journey from searching for help to finding the right care
             </p>
             <p className="text-slate-600 text-sm leading-relaxed mb-5">
@@ -302,10 +361,10 @@ export default function AboutPage() {
       {/* ================= TEAM ================= */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <span className="inline-block px-4 py-1.5 mb-5 rounded-full bg-slate-100 text-[#7c7c7c] text-lg font-semibold">
+          <span className="inline-block px-6 py-1.5 mb-5 rounded-full bg-slate-100 text-[#7c7c7c] text-[20px] font-normal">
             Our Team
           </span>
-          <p className="text-3xl sm:text-4xl font-semibold text-[#318bb0] leading-tight mb-14 max-w-xl">
+          <p className="text-[44px] font-semibold text-[#318bb0] leading-tight mb-14 max-w-xl">
             The People Behind Better Recovery Discovery
           </p>
 

@@ -64,7 +64,7 @@ export default function FeaturedRehabs() {
   if (centers.length === 0) return null
 
   return (
-    <section id="search" className="py-20 bg-white text-slate-800">
+    <section id="search" className="pt-0 pb-20 bg-white text-slate-800">
       <div className="px-6 sm:px-12 lg:px-12">
 
         {/* Header */}

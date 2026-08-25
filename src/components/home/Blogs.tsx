@@ -54,26 +54,26 @@ export default function Blogs() {
   if (posts.length === 0) return null
 
   return (
-    <section id="blogs" className="pt-20 bg-white text-slate-800">
+    <section id="blogs" className="pt-12 pb-0 bg-white text-slate-800">
       <div className="px-6 sm:px-12 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-          <div>
-            <h2 className="text-3xl font-extrabold text-brand-blue tracking-tight">Blogs & Articles</h2>
-            <p className="text-slate-500 text-sm mt-1">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 text-center md:text-left">
+          <div className="flex-1">
+            <h2 className="text-2xl sm:text-3xl font-normal text-[#318bb0] tracking-tight font-serif">Blogs & Articles</h2>
+            <p className="text-slate-500 text-xs sm:text-sm mt-1">
               Discover recovery insights, treatment guidance, and mental wellness educational resources
             </p>
           </div>
           <Link
             href="/blog"
-            className="inline-flex items-center justify-center px-6 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider rounded-xl transition"
+            className="self-center md:self-end px-5 py-2 border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider rounded-xl transition"
           >
             More Blogs
           </Link>
         </div>
 
-        {/* Masonry grid */}
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-5 gap-6">
+        {/* Horizontal flex row on mobile, masonry column grid on desktop */}
+        <div className="flex md:block md:columns-3 lg:columns-5 gap-6 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-none pb-6 -mx-6 px-6 md:mx-0 md:px-0">
           {posts.map((post, idx) => {
             const image = post.featured_image?.full_url || FALLBACK_IMAGES[idx % FALLBACK_IMAGES.length]
             const excerpt = post.intro || ''
@@ -81,7 +81,7 @@ export default function Blogs() {
             return (
               <div
                 key={post.id}
-                className="break-inside-avoid mb-6 bg-[#fcfaf7] border border-slate-200/60 rounded-[20px] p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition duration-300"
+                className="break-inside-avoid shrink-0 w-[78vw] min-[375px]:w-[280px] snap-center md:w-auto md:shrink md:snap-none mb-6 bg-[#fcfaf7] border border-slate-200/60 rounded-[20px] p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition duration-300"
               >
                 <div>
                   <div className="relative aspect-[4/3] w-full rounded-[14px] overflow-hidden mb-4 bg-slate-100">
@@ -94,12 +94,12 @@ export default function Blogs() {
                     />
                   </div>
                   <Link href={`/blog/${post.meta.slug}`}>
-                    <h3 className="font-bold text-brand-blue text-sm sm:text-base underline leading-snug mb-2 line-clamp-3 hover:opacity-80 transition">
+                    <h3 className="font-bold text-[#318bb0] text-sm sm:text-base underline leading-snug mb-2 line-clamp-3 hover:opacity-80 transition">
                       {post.title}
                     </h3>
                   </Link>
                   {excerpt && (
-                    <p className="text-xs text-slate-500 leading-relaxed line-clamp-4 mb-4">
+                    <p className="text-[11px] min-[375px]:text-xs text-slate-500 leading-relaxed line-clamp-4 mb-4">
                       {excerpt.replace(/<[^>]*>/g, '')}
                     </p>
                   )}

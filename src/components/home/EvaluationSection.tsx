@@ -1,6 +1,9 @@
+"use client"
+
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Check } from 'lucide-react'
+import { Check, X } from 'lucide-react'
 
 const POINTS = [
     'Expert-Led Recovery Duration Planning',
@@ -9,6 +12,24 @@ const POINTS = [
 ]
 
 export default function EvaluationSection() {
+    const [isOpen, setIsOpen] = useState(false)
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setIsOpen(false)
+            }
+        }
+        if (isOpen) {
+            window.addEventListener('keydown', handleKeyDown)
+            document.body.style.overflow = 'hidden'
+        }
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+            document.body.style.overflow = ''
+        }
+    }, [isOpen])
+
     return (
         <div className="px-6 sm:px-12 lg:px-12 mt-20">
             <div className="relative rounded-[32px] overflow-hidden">
@@ -38,7 +59,7 @@ export default function EvaluationSection() {
                 <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center p-8 sm:p-12 lg:p-16">
 
                     {/* Left — text */}
-                    <div className="space-y-6">
+                    <div className="space-y-6 order-2 md:order-1">
                         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#318bb0] leading-tight">
                             RecoverIndia.Org – Trusted Rehab Discovery with Optimum Recovery Planning
                         </h2>
@@ -67,11 +88,11 @@ export default function EvaluationSection() {
                     </div>
 
                     {/* Right — image with play button */}
-                    <div className="relative flex items-center justify-center">
+                    <div className="relative flex items-center justify-center order-1 md:order-2">
                         {/* Doctor image */}
                         <div className="relative w-full aspect-[4/2.5] rounded-[28px] overflow-hidden">
                             <Image
-                                src="/images/homepage/sneha-video.png"
+                                src="/images/homepage/snehavideo.png"
                                 alt="Dr. Sneha Sharma"
                                 fill
                                 className="object-cover object-center"
@@ -80,6 +101,7 @@ export default function EvaluationSection() {
 
                         {/* Play button — centered over image */}
                         <button
+                            onClick={() => setIsOpen(true)}
                             className="absolute inset-0 flex items-center justify-center group"
                             aria-label="Play video"
                         >
@@ -100,6 +122,36 @@ export default function EvaluationSection() {
 
                 </div>
             </div>
+
+            {/* Video Modal Popup */}
+            {isOpen && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 transition-opacity duration-300"
+                    onClick={() => setIsOpen(false)}
+                >
+                    <div
+                        className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden bg-black shadow-2xl"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Close button */}
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="absolute top-4 right-4 text-white hover:text-slate-300 z-50 p-2 rounded-full bg-black/40 hover:bg-black/60 transition"
+                            aria-label="Close modal"
+                        >
+                            <X className="w-6 h-6" />
+                        </button>
+
+                        {/* Video Element */}
+                        <video
+                            src="/videos/sneha-video.mp4"
+                            controls
+                            autoPlay
+                            className="w-full h-full object-contain"
+                        />
+                    </div>
+                </div>
+            )}
         </div >
     )
 }
