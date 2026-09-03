@@ -14,7 +14,7 @@ const TREATMENTS = [
 
 export default function RehabsByTreatment() {
     return (
-        <section className="px-6 sm:px-12 lg:px-12 pt-4">
+        <section className="px-3 sm:px-12 lg:px-12 pt-4">
             <div className="">
 
                 {/* Header */}

@@ -7,12 +7,12 @@ export default function SeoContent() {
 
   return (
     <section className="py-8 pb-16 bg-white text-slate-800">
-      <div className="px-6 sm:px-12 lg:px-12">
+      <div className="px-3 sm:px-12 lg:px-12">
         <div className="text-[#00587e] text-sm sm:text-base leading-relaxed space-y-4">
           <p>
             Delhi, as a bustling metropolis, presents a unique set of challenges that significantly contribute to mental health issues among its residents. Here's a breakdown of the key mental health problems and contributing factors:
           </p>
-          <h3 className="text-lg font-bold text-[#00587e] mt-6">Common mental health problems in Dwarka Delhi</h3>
+          <h3 className="text-lg font-medium text-[#00587e] mt-6 leading-tight">Common mental health problems in Dwarka Delhi</h3>
           <p>
             <span className="font-bold text-[#00587e] block mb-1">Depression and Anxiety:</span>
             These are among the most prevalent mental health disorders, particularly due to the stressors of urban life like traffic congestion, overcrowding, and demanding work environments. Studies highlight a significant correlation between air pollution and depression, with pollutants affecting brain chemistry.
@@ -39,7 +39,7 @@ export default function SeoContent() {
         </div>
 
         {/* Read More/Less Button */}
-        <div className="mt-8">
+        <div className="mt-4 md:mt-8">
           <button
             onClick={() => setIsSeoExpanded(!isSeoExpanded)}
             className="px-8 py-3.5 bg-brand-blue hover:bg-brand-blue/90 text-white font-bold text-xs sm:text-sm tracking-wider uppercase rounded-full shadow-sm transition cursor-pointer"

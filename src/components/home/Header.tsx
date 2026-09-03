@@ -148,12 +148,12 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="top-0 z-50 relative w-full px-3 md:px-12 mt-3 md:mt-2"
+      className="top-0 z-50 relative w-full px-3 md:px-8 mt-3 md:mt-2"
 
     >
-      <div className="rounded-[1.5rem] md:rounded-3xl" style={{ background: 'linear-gradient(to right, #f2e9d8, #f7f2e8, #f2e9d8)' }}>
+      <div className="rounded-2xl md:rounded-3xl" style={{ background: 'linear-gradient(to right, #f2e9d8, #f7f2e8, #f2e9d8)' }}>
         {/* ── Main bar ── */}
-        <div className="px-5 md:px-8 py-4 md:py-5 flex items-center justify-between gap-6">
+        <div className="px-3 md:px-8 py-4 md:py-5 flex items-center justify-between gap-6">
 
           {/* Logo */}
           <div className='flex gap-4 items-center'>
@@ -396,7 +396,7 @@ export default function Header() {
             {/* Phone Button */}
             <a
               href="tel:18005699881"
-              className="w-12 h-12 rounded-full flex items-center justify-center bg-[#38bfa7] hover:bg-[#30b098] transition shadow-sm shrink-0"
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-[#38bfa7] hover:bg-[#30b098] transition shadow-sm shrink-0"
             >
               <PhoneCall className="w-5 h-5 text-white fill-white" />
             </a>
@@ -404,7 +404,7 @@ export default function Header() {
             {/* Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="w-12 h-12 rounded-full flex items-center justify-center bg-[#38bfa7] hover:bg-[#30b098] text-white transition shadow-sm shrink-0"
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-[#38bfa7] hover:bg-[#30b098] text-white transition shadow-sm shrink-0"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />

@@ -41,8 +41,8 @@ export default function Faqs() {
   ]
 
   return (
-    <section id="faqs" className="pt-12 pb-16 bg-white text-slate-800">
-      <div className="px-3 sm:px-6 lg:px-8">
+    <section id="faqs" className="bg-white text-slate-800 px-3 sm:px-12 lg:px-12 mt-15 md:mt-20">
+      <div className="">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="text-2xl sm:text-3xl font-normal text-[#318bb0] tracking-tight mb-2 font-serif">FAQs - Common Concerns</h2>
           <p className="text-slate-500 text-xs sm:text-sm">

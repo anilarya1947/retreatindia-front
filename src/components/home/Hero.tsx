@@ -242,7 +242,7 @@ export default function Hero() {
     <section className="relative w-full mt-3" ref={popupRef}>
 
       {/* Desktop Banner */}
-      <div className="hidden md:block relative w-full px-6 sm:px-12 lg:px-12">
+      <div className="hidden md:block relative w-full px-6 sm:px-6 lg:px-8">
         <div className="relative w-full rounded-lg md:rounded-3xl overflow-hidden shadow-lg">
           <img
             src="/images/homepage/banner.png"
@@ -250,18 +250,18 @@ export default function Hero() {
             className="object-cover object-center h-full w-full"
           />
           {/* Desktop Overlay Content */}
-          <div className="absolute inset-0 flex flex-col justify-center px-16 text-left z-20">
-            <h1 className="text-3xl lg:text-5xl font-extrabold text-white leading-tight max-w-[55%]">
+          <div className="absolute inset-0 flex flex-col justify-center px-16 text-left z-20 top-32 left-0">
+            <h1 className="text-3xl lg:text-4xl font-normal text-white leading-tight max-w-[40%]">
               Explore curated <span className="font-serif italic text-[#f7e6c4]">rehabs</span><br />
               for addiction & mental<br />
               wellness recovery
             </h1>
-            <p className="text-sm lg:text-base font-bold text-white/90 mt-3 mb-6 tracking-wide">
+            <p className="text-sm lg:text-base font-medium text-white/90 mt-3 mb-6 tracking-wide">
               Guided • Holistic • Reliable
             </p>
             <button
               onClick={() => router.push('/rehabs')}
-              className="bg-[#318bb0] hover:bg-[#27708e] active:scale-95 text-white text-xs lg:text-sm font-extrabold uppercase rounded-full px-7 py-3 w-fit shadow-lg transition-all cursor-pointer"
+              className="bg-[#318bb0] hover:bg-[#27708e] active:scale-95 text-white text-xs lg:text-sm font-medium uppercase rounded-full px-7 py-3 w-fit shadow-lg transition-all cursor-pointer"
             >
               FIND NEAR YOU
             </button>
@@ -297,20 +297,20 @@ export default function Hero() {
         </div>
 
         {/* Mobile Info Bar */}
-        <div className="mt-3 bg-[#318bb0] rounded-[1.5rem] py-3.5 px-4 flex items-center justify-between gap-1.5 text-white shadow-sm">
+        <div className="mt-3 bg-[#318bb0] rounded-[1.5rem] py-3.5 px-3 md:px-4 flex items-center justify-between gap=1 md:gap-1.5 text-white shadow-sm">
           <div className="flex items-center gap-1.5">
             <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2L14.4 4.5L17.8 3.9L18.4 7.3L21.5 8.7L20.3 12L21.5 15.3L18.4 16.7L17.8 20.1L14.4 19.5L12 22L9.6 19.5L6.2 20.1L5.6 16.7L2.5 15.3L3.7 12L2.5 8.7L5.6 7.3L6.2 3.9L9.6 4.5L12 2Z" fill="#5ce1c9" />
               <path d="M8.5 12L11 14.5L16 9.5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="text-[9px] xs:text-[10.5px] font-bold leading-none">Trusted pricing for every stay</span>
+            <span className="text-[10px] xs:text-[10.5px] font-bold leading-none">Trusted pricing for every stay</span>
           </div>
           <div className="flex items-center gap-1.5">
             <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2L14.4 4.5L17.8 3.9L18.4 7.3L21.5 8.7L20.3 12L21.5 15.3L18.4 16.7L17.8 20.1L14.4 19.5L12 22L9.6 19.5L6.2 20.1L5.6 16.7L2.5 15.3L3.7 12L2.5 8.7L5.6 7.3L6.2 3.9L9.6 4.5L12 2Z" fill="#5ce1c9" />
               <path d="M8.5 12L11 14.5L16 9.5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="text-[9px] xs:text-[10.5px] font-bold leading-none">Flexible admissions & cancellations</span>
+            <span className="text-[10px] xs:text-[10.5px] font-bold leading-none">Flexible admissions & cancellations</span>
           </div>
         </div>
       </div>

@@ -7,8 +7,8 @@ interface RecoveryProcessProps {
 
 export default function RecoveryProcess({ onOpenInquiry }: RecoveryProcessProps) {
   return (
-    <section className="pt-20 bg-white text-slate-800">
-      <div className="px-6 sm:px-12 lg:px-12">
+    <section className="bg-white text-slate-800 px-3 sm:px-12 lg:px-12 mt-15 md:mt-20">
+      <div className="">
 
         <div className='mb-10'>
           <img src="images/homepage/why-bg.png" alt="" className='rounded-2xl' />
@@ -93,7 +93,7 @@ export default function RecoveryProcess({ onOpenInquiry }: RecoveryProcessProps)
         </div>
 
         {/* Centered Action Button */}
-        <div className="flex justify-center mt-14">
+        <div className="flex justify-center mt-8 md:mt-14">
           <button
             onClick={onOpenInquiry}
             className="px-10 py-4 bg-brand-blue hover:bg-brand-blue/90 text-white font-normal text-xs sm:text-sm tracking-widest uppercase rounded-full transition"

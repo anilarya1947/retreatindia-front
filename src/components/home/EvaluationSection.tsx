@@ -31,7 +31,7 @@ export default function EvaluationSection() {
     }, [isOpen])
 
     return (
-        <div className="px-6 sm:px-12 lg:px-12 mt-20">
+        <div className="px-3 sm:px-12 lg:px-12 mt-15 md:mt-20">
             <div className="relative rounded-[32px] overflow-hidden">
 
                 {/* Background image */}
@@ -56,7 +56,7 @@ export default function EvaluationSection() {
                 </div>
 
                 {/* Content grid */}
-                <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center p-8 sm:p-12 lg:p-16">
+                <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center p-6 sm:p-12 lg:p-16">
 
                     {/* Left — text */}
                     <div className="space-y-6 order-2 md:order-1">

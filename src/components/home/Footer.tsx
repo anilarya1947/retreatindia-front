@@ -236,25 +236,11 @@ export default function Footer() {
       </div>
 
       {/* ----------------- MOBILE VIEW ----------------- */}
-      <div className="block md:hidden relative z-10 px-6">
+      <div className="block md:hidden relative z-10 px-3 md:px-6">
         <div className="flex flex-col gap-10">
 
           {/* Menu list with left vertical bar (Screenshot 1) */}
-          <div className="flex flex-col gap-4 pl-4 border-l-[3px] border-white">
-            <div className="flex flex-col gap-3.5 text-xs font-black tracking-widest text-white">
-              <Link href="#doctors" className="hover:opacity-90">ABOUT</Link>
-              <Link href="/contact" className="hover:opacity-90">CONTACT</Link>
-              <Link href="/blog" className="hover:opacity-90">BLOGS</Link>
-              <Link href="/list-your-center" className="hover:opacity-90">LIST YOUR CENTER</Link>
-              <Link href="/privacy-policy" className="hover:opacity-90">PRIVACY POLICY</Link>
-              <Link href="/terms-conditions" className="hover:opacity-90">TERMS & CONDITIONS</Link>
-              <Link href="/disclaimer" className="hover:opacity-90">DISCLAIMER</Link>
-            </div>
-            <div className="mt-4 pt-3 border-t border-white/10 text-xs text-white/80 font-medium">
-              <span className="block font-extrabold text-white tracking-widest mb-0.5">RECOVERINDIA.COM</span>
-              <span>&copy; 2026-2027</span>
-            </div>
-          </div>
+
 
           {/* Rehabs by Location (Screenshot 2) */}
           <div>
@@ -372,6 +358,22 @@ export default function Footer() {
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm5.835-3.266c1.62.96 3.201 1.46 4.937 1.461 5.349 0 9.704-4.323 9.707-9.629.002-2.571-1.002-4.99-2.83-6.819-1.828-1.83-4.262-2.838-6.837-2.839-5.356 0-9.71 4.322-9.71 9.63-.001 1.733.453 3.424 1.316 4.922L1.442 22.56l4.45-1.826zm11.957-6.861c-.3-.149-1.77-.87-2.046-.971-.275-.1-.475-.149-.675.149-.199.3-.774.972-.949 1.17-.175.199-.349.224-.649.075-.3-.15-1.265-.465-2.41-1.48-.89-.792-1.49-1.77-1.665-2.07-.175-.3-.019-.461.13-.61.135-.133.3-.349.45-.523.15-.174.2-.299.3-.499.1-.199.05-.375-.025-.524-.075-.15-.675-1.625-.925-2.225-.244-.589-.493-.51-.675-.519-.175-.009-.375-.01-.575-.01-.2 0-.525.075-.8 1.096-.275 1.02-1.05 3.105-1.05 3.155 0 .052.05.275.225.514.175.238 1.8 2.749 4.362 3.856.61.264 1.085.42 1.457.538.613.195 1.171.167 1.611.101.49-.074 1.77-.723 2.02-1.396.25-.673.25-1.248.175-1.396-.075-.149-.275-.249-.575-.398z" />
                 </svg>
               </a>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3.5 text-xs font-black tracking-widest text-white">
+                <Link href="#doctors" className="hover:opacity-90">ABOUT</Link>
+                <Link href="/contact" className="hover:opacity-90">CONTACT</Link>
+                <Link href="/blog" className="hover:opacity-90">BLOGS</Link>
+                <Link href="/list-your-center" className="hover:opacity-90">LIST YOUR CENTER</Link>
+                <Link href="/privacy-policy" className="hover:opacity-90">PRIVACY POLICY</Link>
+                <Link href="/terms-conditions" className="hover:opacity-90">TERMS & CONDITIONS</Link>
+                <Link href="/disclaimer" className="hover:opacity-90">DISCLAIMER</Link>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 text-xs text-white/80 font-medium">
+                <span className="block font-extrabold text-white tracking-widest mb-0.5">RECOVERINDIA.COM</span>
+                <span>&copy; 2026-2027</span>
+              </div>
             </div>
           </div>
 

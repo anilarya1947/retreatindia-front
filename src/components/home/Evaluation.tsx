@@ -129,7 +129,7 @@ export default function Evaluation({ onOpenInquiry }: EvaluationProps) {
         {/* Mobile View */}
         <div className="block md:hidden">
           {/* Top Section */}
-          <div className="grid grid-cols-[70px_1fr] gap-4 items-start mb-8">
+          <div className="grid grid-cols-[80px_1fr] gap-4 items-start mb-8">
             {/* Left: Green Tick & Taglines */}
             <div className="flex flex-col items-center gap-3 shrink-0">
               <div className="relative w-12 h-12 shrink-0">
@@ -139,7 +139,7 @@ export default function Evaluation({ onOpenInquiry }: EvaluationProps) {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="flex flex-col text-[10px] font-bold leading-tight tracking-wide text-center">
+              <div className="flex flex-col text-[10px] font-bold leading-tight tracking-wide text-left">
                 <span className="text-[#38bfa7]">right care</span>
                 <span className="text-[#54bed1]">right duration</span>
                 <span className="text-[#318bb0]">right cost</span>
@@ -170,7 +170,7 @@ export default function Evaluation({ onOpenInquiry }: EvaluationProps) {
             <div className="grid grid-cols-2 gap-4">
               {getVisibleDoctors().map((doc, idx) => (
                 <div key={idx} className="flex flex-col items-center group">
-                  <div className="relative w-full aspect-[4/5] bg-[#fbf8f3] rounded-full overflow-hidden mb-3 border border-[#f0e9dd]/40 shadow-sm">
+                  <div className="relative w-full bg-[#fbf8f3] rounded-full overflow-hidden mb-3 border border-[#f0e9dd]/40 shadow-sm">
                     <img
                       src={doc.image}
                       alt={doc.name}

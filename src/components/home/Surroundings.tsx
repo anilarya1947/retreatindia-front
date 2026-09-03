@@ -13,10 +13,10 @@ export default function Surroundings() {
   ]
 
   return (
-    <section id="surroundings" className="pt-12 pb-16 bg-white text-slate-800">
+    <section id="surroundings" className="bg-white text-slate-800 px-3 sm:px-12 lg:px-12 mt-15 md:mt-20">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-3xl sm:text-4xl font-normal text-[#318bb0] mb-2 font-serif">Rehabs By Surroundings</h2>
+          <h2 className="text-2xl sm:text-4xl font-normal text-[#318bb0] mb-2 font-serif">Rehabs By Surroundings</h2>
           <p className="text-slate-500 text-xs sm:text-sm">
             Discover recovery retreats across mountains, forests, beaches, and serene wellness destinations
           </p>
