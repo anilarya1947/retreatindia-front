@@ -22,6 +22,12 @@ const PATIENT_PROFILES = ['Men', 'Women', 'Teens', 'Executives', 'Young Adults',
 
 const SURROUNDINGS = ['Mountains', 'Beach', 'Farm/Garden', 'Forest', 'City', 'Lake/Riverside']
 
+const MOBILE_INFO_ITEMS = [
+  'Trusted pricing for every stay',
+  'Flexible admissions & cancellations',
+  'No hidden booking charges',
+]
+
 function slugify(str: string) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 }
@@ -72,7 +78,7 @@ export default function Hero() {
   }
 
   const SearchBarForm = ({ isMobile }: { isMobile: boolean }) => (
-    <div className={isMobile ? "w-full max-w-xl px-3 mt-4 mx-auto relative z-30 block md:hidden" : "absolute top-6 sm:top-10 left-1/2 -translate-x-1/2 z-30 w-full max-w-xl px-4 hidden md:block"}>
+    <div className={isMobile ? "w-full max-w-xl px-2 mt-4 mx-auto relative z-30 block md:hidden" : "absolute top-6 sm:top-10 left-1/2 -translate-x-1/2 z-30 w-full max-w-xl px-4 hidden md:block"}>
       <form onSubmit={handleSearch}>
         <div className={`relative flex items-center bg-white shadow-xl border border-slate-200 ${isPopupOpen ? 'rounded-t-2xl rounded-b-none border-b-0' : 'rounded-full'} transition-all`}>
           <Search className="w-5 h-5 text-slate-400 absolute left-5 pointer-events-none" />
@@ -239,7 +245,7 @@ export default function Hero() {
   )
 
   return (
-    <section className="relative w-full mt-3" ref={popupRef}>
+    <section className="relative w-full mt-2" ref={popupRef}>
 
       {/* Desktop Banner */}
       <div className="hidden md:block relative w-full px-6 sm:px-6 lg:px-8">
@@ -270,26 +276,26 @@ export default function Hero() {
       </div>
 
       {/* Mobile Banner */}
-      <div className="block md:hidden px-3">
-        <div className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-md">
+      <div className="block md:hidden px-2">
+        <div className="relative w-full aspect-[5/3] rounded-2xl overflow-hidden shadow-md">
           <Image
-            src="/images/homepage/banner.png"
+            src="/images/homepage/mpbbanner.png"
             alt="RecoverIndia Banner"
             fill
             priority
             className="object-cover object-center"
           />
           {/* Mobile Overlay Content */}
-          <div className="absolute inset-0 flex flex-col justify-center px-6 text-left z-20">
-            <h1 className="text-[1.375rem] xs:text-[1.625rem] font-bold text-white leading-tight max-w-[62%]">
+          <div className="absolute inset-0 flex flex-col justify-center px-3 top-20 text-left z-20">
+            <h1 className="text-[12px] xs:text-[1.625rem] font-medium text-white leading-tight max-w-[50%]">
               Explore curated <span className="font-serif italic text-[#f7e6c4]">rehabs</span> for addiction & mental wellness recovery
             </h1>
-            <p className="text-[10px] xs:text-[11px] font-semibold text-white/90 mt-2 mb-4 tracking-wide">
+            <p className="text-[8px] xs:text-[11px] font-semibold text-white/90 mt-1 mb-2 tracking-wide">
               Guided • Holistic • Reliable
             </p>
             <button
               onClick={() => router.push('/rehabs')}
-              className="bg-[#318bb0] hover:bg-[#27708e] active:scale-95 text-white text-[10px] xs:text-[11px] font-extrabold uppercase rounded-full px-5 py-2.5 w-fit shadow-md transition-all cursor-pointer"
+              className="bg-[#318bb0] hover:bg-[#27708e] active:scale-95 text-white text-[9px] xs:text-[11px] font-normal uppercase rounded-full px-5 py-1.5 w-fit shadow-md transition-all cursor-pointer"
             >
               FIND NEAR YOU
             </button>
@@ -297,20 +303,17 @@ export default function Hero() {
         </div>
 
         {/* Mobile Info Bar */}
-        <div className="mt-3 bg-[#318bb0] rounded-[1.5rem] py-3.5 px-3 md:px-4 flex items-center justify-between gap=1 md:gap-1.5 text-white shadow-sm">
-          <div className="flex items-center gap-1.5">
-            <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L14.4 4.5L17.8 3.9L18.4 7.3L21.5 8.7L20.3 12L21.5 15.3L18.4 16.7L17.8 20.1L14.4 19.5L12 22L9.6 19.5L6.2 20.1L5.6 16.7L2.5 15.3L3.7 12L2.5 8.7L5.6 7.3L6.2 3.9L9.6 4.5L12 2Z" fill="#5ce1c9" />
-              <path d="M8.5 12L11 14.5L16 9.5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span className="text-[10px] xs:text-[10.5px] font-bold leading-none">Trusted pricing for every stay</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L14.4 4.5L17.8 3.9L18.4 7.3L21.5 8.7L20.3 12L21.5 15.3L18.4 16.7L17.8 20.1L14.4 19.5L12 22L9.6 19.5L6.2 20.1L5.6 16.7L2.5 15.3L3.7 12L2.5 8.7L5.6 7.3L6.2 3.9L9.6 4.5L12 2Z" fill="#5ce1c9" />
-              <path d="M8.5 12L11 14.5L16 9.5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span className="text-[10px] xs:text-[10.5px] font-bold leading-none">Flexible admissions & cancellations</span>
+        <div className="mt-3 bg-[#318bb0] rounded-[1.5rem] py-2.5 px-3 text-white shadow-sm overflow-hidden relative">
+          <div className="flex w-max animate-marquee items-center gap-8">
+            {[...MOBILE_INFO_ITEMS, ...MOBILE_INFO_ITEMS].map((item, index) => (
+              <div key={index} className="flex items-center gap-2 shrink-0">
+                <svg className="w-8 h-8 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L14.4 4.5L17.8 3.9L18.4 7.3L21.5 8.7L20.3 12L21.5 15.3L18.4 16.7L17.8 20.1L14.4 19.5L12 22L9.6 19.5L6.2 20.1L5.6 16.7L2.5 15.3L3.7 12L2.5 8.7L5.6 7.3L6.2 3.9L9.6 4.5L12 2Z" fill="#45c9a5" />
+                  <path d="M8.5 12L11 14.5L16 9.5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="text-[14px] font-normal leading-none">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

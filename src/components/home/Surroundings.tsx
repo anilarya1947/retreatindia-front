@@ -9,12 +9,12 @@ export default function Surroundings() {
     { name: 'Forest', image: '/images/homepage/ico-forest.png' },
     { name: 'Beach', image: '/images/homepage/ico-beach.png' },
     { name: 'Lake/Riverside', image: '/images/homepage/ico-lake.png' },
-    { name: 'City', image: '/images/homepage/ico-city.png' },
+    { name: 'City', image: '/images/homepage/ico-snow.png' },
   ]
 
   return (
-    <section id="surroundings" className="bg-white text-slate-800 px-3 sm:px-12 lg:px-12 mt-15 md:mt-20">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <section id="surroundings" className="bg-white text-slate-800 px-2 sm:px-12 lg:px-12 mt-15 md:mt-20">
+      <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="text-2xl sm:text-4xl font-normal text-[#318bb0] mb-2 font-serif">Rehabs By Surroundings</h2>
           <p className="text-slate-500 text-xs sm:text-sm">

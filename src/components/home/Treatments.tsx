@@ -14,7 +14,7 @@ export default function Treatments() {
 
   return (
     <section id="Treatemnts" className="py-20 bg-white text-slate-800 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <h2 className="text-4xl font-normal text-brand-blue mb-3">Rehabs By Treatemnts</h2>
           <p className="text-slate-500 text-sm">

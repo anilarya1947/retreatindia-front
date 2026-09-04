@@ -7,11 +7,115 @@ interface RecoveryProcessProps {
 
 export default function RecoveryProcess({ onOpenInquiry }: RecoveryProcessProps) {
   return (
-    <section className="bg-white text-slate-800 px-3 sm:px-12 lg:px-12 mt-15 md:mt-20">
+    <section className="bg-white text-slate-800 px-2 sm:px-12 lg:px-12 mt-15 md:mt-20">
       <div className="">
 
-        <div className='mb-10'>
-          <img src="images/homepage/why-bg.png" alt="" className='rounded-2xl' />
+        {/* Why RecoverIndia.Org Section */}
+        <div className="relative w-full rounded-2xl md:rounded-4xl overflow-hidden shadow-sm mb-12 sm:mb-16 border border-emerald-100/50 bg-[#f4f9f8]">
+
+          {/* Background image for Desktop */}
+          <img
+            src="/images/homepage/why-bg.png"
+            alt="Why RecoverIndia.Org Background"
+            className="hidden lg:block absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none opacity-90"
+          />
+
+          {/* Background image for Mobile */}
+          <img
+            src="/images/homepage/why-bg-mob.png"
+            alt="Why RecoverIndia.Org Background Mobile"
+            className="block lg:hidden absolute inset-0 w-full h-full object-fill object-bottom pointer-events-none opacity-90"
+          />
+
+
+          <div className="relative z-10 py-10 px-2 sm:py-12 sm:px-8 lg:py-25 lg:px-10 flex flex-col items-center">
+
+            {/* Title */}
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif text-[#009ea8] text-center font-normal tracking-tight mb-3">
+              Why <span className="text-[#009ea8] font-normal">Recover<span className='text-[#35c08d]'>India</span>.Org</span>
+            </h2>
+
+            {/* Subtitle Description */}
+            <p className="max-w-3xl text-center mx-auto text-xs sm:text-sm lg:text-[14px] text-[#666666] leading-relaxed font-sans mb-4 sm:mb-10">
+              RecoverIndia.Org helps individuals and loved ones discover verified rehabilitation and wellness centres across India with transparent guidance, personalized recovery planning, privacy-focused support, and expert-assisted discovery. Every recommendation is thoughtfully aligned with clinical needs, lifestyle preferences, recovery goals, and affordability for a more meaningful healing journey.
+            </p>
+
+            {/* Graphic & Badges Grid */}
+            <div className="w-full max-w-6xl grid grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-6 lg:gap-4 items-center relative py-2">
+
+              {/* Left 3 Pills Column */}
+              <div className="col-span-1 lg:col-span-4 flex flex-col gap-3.5 sm:gap-5 items-center lg:items-end order-2 lg:order-1">
+
+                {/* Pill 1: Curated & Verified Listings */}
+                <div className="bg-[#89BDD0] hover:bg-[#528aa6] transition-all text-white rounded-full px-3 py-2 sm:px-8 sm:py-3 shadow-md flex items-center justify-center gap-1.5 text-[10px] sm:text-sm lg:text-[18px] text-center lg:text-left whitespace-normal sm:whitespace-nowrap lg:-mr-2 transform hover:-translate-y-0.5 w-full lg:w-auto">
+                  <span className="font-extrabold tracking-wide">Curated &amp;</span>
+                  <span className="font-light opacity-95">Verified Listings</span>
+                </div>
+
+                {/* Pill 2: Transparent Guidance */}
+                <div className="bg-[#65d0a8] hover:bg-[#3ba880] transition-all text-white rounded-full px-3 py-2 sm:px-8 sm:py-3 shadow-md flex items-center justify-center gap-1.5 text-[10px] sm:text-sm lg:text-[18px] text-center lg:text-left whitespace-normal sm:whitespace-nowrap lg:mr-10 transform hover:-translate-y-0.5 w-full lg:w-auto">
+                  <span className="font-extrabold tracking-wide">Transparent</span>
+                  <span className="font-light opacity-95">Guidance</span>
+                </div>
+
+                {/* Pill 3: No Forced Referrals */}
+                <div className="bg-[#F4B693] hover:bg-[#e08359] transition-all text-white rounded-full px-3 py-2 sm:px-8 sm:py-3 shadow-md flex items-center justify-center gap-1.5 text-[10px] sm:text-sm lg:text-[18px] text-center lg:text-left whitespace-normal sm:whitespace-nowrap lg:mr-2 transform hover:-translate-y-0.5 w-full lg:w-auto">
+                  <span className="font-extrabold tracking-wide">No Forced</span>
+                  <span className="font-light opacity-95">Referrals</span>
+                </div>
+
+              </div>
+
+              {/* Middle Center Graphic + Decorative Icons */}
+              <div className="col-span-2 lg:col-span-4 flex justify-center items-center relative my-2 lg:my-0 min-h-[200px] sm:min-h-[280px] order-1 lg:order-2">
+
+                {/* Top-Left Outline Icon */}
+
+
+                {/* Top-Right Outline Icon */}
+
+
+                {/* Bottom-Left Outline Icon */}
+
+
+                {/* Bottom-Right Outline Icon */}
+
+
+                {/* Center Main Logo Image */}
+                <img
+                  src="/images/homepage/why-bgs.png"
+                  alt="RecoverIndia Central Illustration"
+                  className="w-48 h-48 sm:w-60 sm:h-60 object-contain relative z-10 transform hover:scale-105 transition-transform duration-500 invisible"
+                />
+
+              </div>
+
+              {/* Right 3 Pills Column */}
+              <div className="col-span-1 lg:col-span-4 flex flex-col gap-3.5 sm:gap-5 items-center lg:items-start order-3">
+
+                {/* Pill 4: Optimum Stay Planning */}
+                <div className="bg-[#77D3CE] hover:bg-[#3baaa6] transition-all text-white rounded-full px-3 py-2 sm:px-8 sm:py-3 shadow-md flex items-center justify-center gap-1.5 text-[10px] sm:text-sm lg:text-[18px] text-center lg:text-left whitespace-normal sm:whitespace-nowrap lg:-ml-2 transform hover:-translate-y-0.5 w-full lg:w-auto">
+                  <span className="font-extrabold tracking-wide">Optimum</span>
+                  <span className="font-light opacity-95">Stay Planning</span>
+                </div>
+
+                {/* Pill 5: Expert-Assisted Discovery */}
+                <div className="bg-[#E4C691] hover:bg-[#cf9954] transition-all text-white rounded-full px-3 py-2 sm:px-8 sm:py-3 shadow-md flex items-center justify-center gap-1.5 text-[10px] sm:text-sm lg:text-[18px] text-center lg:text-left whitespace-normal sm:whitespace-nowrap lg:ml-10 transform hover:-translate-y-0.5 w-full lg:w-auto">
+                  <span className="font-extrabold tracking-wide">Expert-Assisted</span>
+                  <span className="font-light opacity-95">Discovery</span>
+                </div>
+
+                {/* Pill 6: Privacy Focused */}
+                <div className="bg-[#89bdd0] hover:bg-[#5197bb] transition-all text-white rounded-full px-3 py-2 sm:px-8 sm:py-3 shadow-md flex items-center justify-center gap-1.5 text-[10px] sm:text-sm lg:text-[18px] text-center lg:text-left whitespace-normal sm:whitespace-nowrap lg:ml-2 transform hover:-translate-y-0.5 w-full lg:w-auto">
+                  <span className="font-extrabold tracking-wide">Privacy</span>
+                  <span className="font-light opacity-95">Focused</span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
         </div>
         <div className="flex md:grid md:grid-cols-5 gap-8 lg:gap-12 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-none pb-6 -mx-6 px-6 md:mx-0 md:px-0">
 
@@ -93,7 +197,7 @@ export default function RecoveryProcess({ onOpenInquiry }: RecoveryProcessProps)
         </div>
 
         {/* Centered Action Button */}
-        <div className="flex justify-center mt-8 md:mt-14">
+        <div className="flex justify-center mt-4 md:mt-14">
           <button
             onClick={onOpenInquiry}
             className="px-10 py-4 bg-brand-blue hover:bg-brand-blue/90 text-white font-normal text-xs sm:text-sm tracking-widest uppercase rounded-full transition"

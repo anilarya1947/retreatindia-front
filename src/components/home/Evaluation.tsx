@@ -56,7 +56,7 @@ export default function Evaluation({ onOpenInquiry }: EvaluationProps) {
 
   return (
     <section id="doctors" className="py-12 md:py-20 bg-white text-slate-800">
-      <div className="px-3 sm:px-6 lg:px-8">
+      <div className="px-2 sm:px-6 lg:px-8">
 
         {/* Desktop View */}
         <div className="hidden md:grid md:grid-cols-[1.1fr_auto_1.5fr] lg:grid-cols-[1fr_auto_1.4fr] gap-6 lg:gap-10 items-center">

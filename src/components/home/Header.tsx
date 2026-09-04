@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { PhoneCall, Menu, X, ChevronDown } from 'lucide-react'
+import { PhoneCall, Menu, X, ChevronDown, Phone } from 'lucide-react'
 
 const TREATMENT_MENU = [
   {
@@ -148,7 +148,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="top-0 z-50 relative w-full px-3 md:px-8 mt-3 md:mt-2"
+      className="top-0 z-50 relative w-full px-2 md:px-8 mt-2  md:mt-2"
 
     >
       <div className="rounded-2xl md:rounded-3xl" style={{ background: 'linear-gradient(to right, #f2e9d8, #f7f2e8, #f2e9d8)' }}>
@@ -398,7 +398,7 @@ export default function Header() {
               href="tel:18005699881"
               className="w-10 h-10 rounded-full flex items-center justify-center bg-[#38bfa7] hover:bg-[#30b098] transition shadow-sm shrink-0"
             >
-              <PhoneCall className="w-5 h-5 text-white fill-white" />
+              <Phone className="w-5 h-5 text-white" strokeWidth={1.5} fill="white" />
             </a>
 
             {/* Menu Button */}
@@ -409,12 +409,7 @@ export default function Header() {
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
               ) : (
-                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="0" y1="2" x2="20" y2="2" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                  <line x1="0" y1="6" x2="20" y2="6" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                  <line x1="0" y1="10" x2="20" y2="10" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                  <line x1="0" y1="14" x2="20" y2="14" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
+                <Menu className="w-5 h-5 text-white" strokeWidth={1.5} fill="white" />
               )}
             </button>
           </div>
