@@ -67,7 +67,7 @@ export default function RecoveryProcess({ onOpenInquiry }: RecoveryProcessProps)
               </div>
 
               {/* Middle Center Graphic + Decorative Icons */}
-              <div className="col-span-2 lg:col-span-4 flex justify-center items-center relative my-2 lg:my-0 min-h-[200px] sm:min-h-[280px] order-1 lg:order-2">
+              <div className="hidden md:flex col-span-2 lg:col-span-4  justify-center items-center relative my-2 lg:my-0 min-h-[200px] sm:min-h-[280px] order-1 lg:order-2">
 
                 {/* Top-Left Outline Icon */}
 
@@ -85,7 +85,7 @@ export default function RecoveryProcess({ onOpenInquiry }: RecoveryProcessProps)
                 <img
                   src="/images/homepage/why-bgs.png"
                   alt="RecoverIndia Central Illustration"
-                  className="w-48 h-48 sm:w-60 sm:h-60 object-contain relative z-10 transform hover:scale-105 transition-transform duration-500 invisible"
+                  className="w-48 h-48 sm:w-60 sm:h-60 object-contain relative z-10 transform hover:scale-105 transition-transform duration-500 hidden md:invisible"
                 />
 
               </div>
@@ -197,7 +197,7 @@ export default function RecoveryProcess({ onOpenInquiry }: RecoveryProcessProps)
         </div>
 
         {/* Centered Action Button */}
-        <div className="flex justify-center mt-4 md:mt-14">
+        <div className="flex justify-center mt-2 md:mt-14">
           <button
             onClick={onOpenInquiry}
             className="px-10 py-4 bg-brand-blue hover:bg-brand-blue/90 text-white font-normal text-xs sm:text-sm tracking-widest uppercase rounded-full transition"

@@ -6,7 +6,7 @@ export default function SeoContent() {
   const [isSeoExpanded, setIsSeoExpanded] = useState(false)
 
   return (
-    <section className="py-8 pb-16 bg-white text-slate-800">
+    <section className="py-8 pb-12 bg-white text-slate-800">
       <div className="px-3 sm:px-12 lg:px-12">
         <div className="text-[#00587e] text-sm sm:text-base leading-relaxed space-y-4">
           <p>

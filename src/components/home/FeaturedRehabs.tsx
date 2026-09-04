@@ -64,12 +64,12 @@ export default function FeaturedRehabs() {
   if (centers.length === 0) return null
 
   return (
-    <section id="search" className="pt-0 pb-20 bg-white text-slate-800">
-      <div className="px-6 sm:px-12 lg:px-12">
+    <section id="search" className="pt-0 pb-16 md:pb-20 bg-white text-slate-800">
+      <div className="px-2 sm:px-12 lg:px-12">
 
         {/* Header */}
-        <div className="mb-10">
-          <h2 className="text-4xl font-regular text-brand-blue tracking-tight">Popular Rehabs</h2>
+        <div className="mb-6 md:mb-10">
+          <h2 className="text-2xl md:text-4xl font-regular text-brand-blue tracking-tight">Popular Rehabs</h2>
           <p className="text-[#666666] text-sm mt-1">
             Explore verified rehab and recovery centres across India
           </p>
