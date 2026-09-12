@@ -64,7 +64,7 @@ export default function FeaturedRehabs() {
   if (centers.length === 0) return null
 
   return (
-    <section id="search" className="pt-0 pb-16 md:pb-20 bg-white text-slate-800">
+    <section id="search" className="pt-0 pb-10 md:pb-20 bg-white text-slate-800">
       <div className="px-2 sm:px-12 lg:px-12">
 
         {/* Header */}

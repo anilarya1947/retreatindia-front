@@ -13,7 +13,7 @@ export default function LandingFAQ({ faqs }: { faqs: FAQItem[] }) {
     const [active, setActive] = useState<number | null>(0)
 
     return (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <section className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <h2 className="text-2xl sm:text-3xl font-serif text-[#318bb0] mb-8">
                 Frequently Asked Questions
             </h2>

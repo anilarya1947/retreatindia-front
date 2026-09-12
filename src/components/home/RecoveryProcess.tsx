@@ -7,7 +7,7 @@ interface RecoveryProcessProps {
 
 export default function RecoveryProcess({ onOpenInquiry }: RecoveryProcessProps) {
   return (
-    <section className="bg-white text-slate-800 px-2 sm:px-12 lg:px-12 mt-15 md:mt-20">
+    <section className="bg-white text-slate-800 px-2 sm:px-12 lg:px-12 mt-10 md:mt-20">
       <div className="">
 
         {/* Why RecoverIndia.Org Section */}
